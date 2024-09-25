@@ -83,7 +83,85 @@
             </li>
         </ul>
     </header>
+    <header class="header" style="position: static;">
+        <div class="nav_container">
+            <nav class="navbar">
+                <div class="mobile_Hamburger_Setting">
+                    <a class="logo_link" href="/">
+                        <img src="./images/pclogo.png" tabindex="-1" alt="這是一個logo">
+                    </a>
+                    <!-- 添加一個顯示/隱藏菜單的按鈕 -->
+                    <button class="show-menu-button" id="show-menu-button">
+                        <i class="fa-sharp fa-solid fa-bars"></i>
+                    </button>
+                </div>
 
+                <div class="login_out">
+                    <div class="icon-setting" id="icon-setting">
+                        <img src="./images/top_bu00.svg" alt="" width="30" height="30">
+                        <div class="link-container">
+                            <a class="profile-link" href="{% url 'profile' %}" style="font-size: 20px;">基金會(漁業署管理者)</a>
+                        </div>
+                        <!-- 增加一個不可見的區域來延長 hover 區域 -->
+                        <div class="hover-area"
+                            style="position: absolute; top: 100%; left: 0; width: 100%; height: 20px;"></div>
+                        <ul class="profile-other-link" id="profile-other-link">
+                            <li><a href="{% url 'profile' %}">個人帳號</a></li>
+                            <li><a href="{% url 'vessel' %}">管理帳號船舶</a></li>
+                        </ul>
+                    </div>
+                    <a href="{% url 'logout' %}" style="font-size: 20px;">登出</a>
+                </div>
+            </nav>
+        </div>
+        <!-- 浮動導航列 -->
+        <ul class="desktop-menu" id="desktop-menu">
+            <!-- 申請與查詢功能 -->
+            <li class="menu-group">
+                <div class="menu-group-title">申請與查詢功能</div>
+                <ul class="menu-items">
+                    <li><a href="#">停泊申請</a></li>
+                    <li><a href="#">查詢及繳費</a></li>
+                    <li><a href="#">漁港船舶查詢</a></li>
+                    <li><a href="#">船舶進出港明細查詢</a></li>
+                    <li><a href="#">船舶逾檢資料查詢</a></li>
+                    <li><a href="#">對帳明細</a></li>
+                </ul>
+            </li>
+            <!-- 統計查詢功能 -->
+            <li class="menu-group">
+                <div class="menu-group-title">統計查詢功能</div>
+                <ul class="menu-items">
+                    <li><a href="#">停泊申請統計查詢</a></li>
+                    <li><a href="#">長期停泊船舶統計查詢</a></li>
+                    <li><a href="#">停泊申請統計查詢</a></li>
+                </ul>
+            </li>
+            <!-- 管理功能 -->
+            <li class="menu-group">
+                <div class="menu-group-title">管理功能</div>
+                <ul class="menu-items">
+                    <li><a href="#">停泊費用管理</a></li>
+                    <li><a href="#">停泊管理</a></li>
+                    <li><a href="#">紙本建單管理</a></li>
+                    <li><a href="#">帳號管理</a></li>
+                </ul>
+            </li>
+            <!-- 編輯功能 -->
+            <li class="menu-group">
+                <div class="menu-group-title">編輯功能</div>
+                <ul class="menu-items">
+                    <li><a href="#">編輯公告</a></li>
+                    <li><a href="#">編輯漁港資訊</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="color-picker-container">
+        <label for="color-picker">選擇背景顏色：</label>
+        <input type="color" id="color-picker" name="color-picker" value="#C9A895">
+    </div>
 
 
     <script>
@@ -104,7 +182,12 @@
                 currentGroup.classList.toggle('active');
             });
         });
-
+        document.getElementById('color-picker').addEventListener('input', function () {
+            // 取得選擇的顏色
+            const selectedColor = this.value;
+            // 將顏色應用到整個網站的背景
+            document.querySelector('.header').style.backgroundColor = selectedColor;
+        })
 
     </script>
 </body>

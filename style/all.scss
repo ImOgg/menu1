@@ -66,15 +66,13 @@ textarea {
 .desktop-menu li:active {
   border-radius: 6px;
 }
-
-$header_color: linear-gradient(to right, #ff7bab, #ffa76a);
 $text_color: #fff;
 $nav_bar_text_color: #101f46;
 $mobile_navbar_color: rgb(18, 42, 94);
 
 .header {
   width: 100%;
-  background: linear-gradient(to right, #ff7bab, #ffa76a); /* 統一背景色 */
+  background: #C9A895; /* 統一背景色 */
   position: fixed;
   top: 0;
   z-index: 100;
@@ -410,3 +408,10 @@ body, .profile-link, .profile-other-link li a {
   color: #6200ea; /* hover 時變為 Material Design 紫色 */
 }
 
+// input置中
+.color-picker-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
