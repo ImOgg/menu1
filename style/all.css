@@ -1,0 +1,390 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+iframe {
+  vertical-align: bottom;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+input[type=date] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+select,
+input {
+  padding: 4px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  min-height: 1.2em;
+  background-color: #fff;
+  color: #333;
+}
+
+iframe {
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.desktop-menu li:hover,
+.desktop-menu li:focus,
+.desktop-menu li:active {
+  border-radius: 6px;
+}
+
+.header {
+  width: 100%;
+  background: linear-gradient(to right, #ff7bab, #ffa76a); /* 統一背景色 */
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  transition: height 0.3s;
+}
+
+.nav_container {
+  max-width: 1366px; /* 固定最大寬度 */
+  margin: auto;
+  padding: 0px 32px;
+  position: relative; /* 為子元素設置定位參考 */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1366px;
+  margin: auto;
+}
+.navbar .logo_link {
+  display: flex;
+  align-items: center;
+}
+
+.desktop_login_out {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+}
+
+.icon-setting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.desktop-menu {
+  max-width: 1366px;
+  margin: auto;
+  display: flex;
+  align-items: start;
+  padding: 0px 32px;
+  gap: 20px;
+}
+.desktop-menu li a {
+  display: block;
+  padding: 12px 20px;
+}
+.desktop-menu li:hover, .desktop-menu li:focus, .desktop-menu li:active {
+  border-radius: 6px;
+}
+
+.logo-text {
+  margin-left: 10px;
+}
+
+.btn_showoff {
+  position: relative;
+}
+
+.showoff {
+  position: absolute;
+  background-color: #fff;
+  display: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+.btn_showoff:hover .showoff {
+  display: block;
+}
+
+.mobile-menu-2-btn {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .nav_container {
+    padding: 0 10px 8px 8px;
+  }
+  .navbar {
+    display: block;
+  }
+  .login_out {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+  }
+  .mobile_Hamburger_Setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mobile-menu-2-btn {
+    display: block;
+  }
+  ul.desktop-menu {
+    position: fixed;
+    width: 80vw;
+    transition: all 0.5s;
+    flex-direction: column;
+    right: -100%;
+  }
+  ul.desktop-menu li {
+    width: 100%;
+  }
+  ul.desktop-menu.show {
+    right: 0;
+  }
+  .showoff {
+    position: static;
+  }
+  .desktop-menu li a {
+    padding: 6px 20px;
+  }
+  .btn_showoff {
+    margin-bottom: 10px;
+  }
+}
+/* 設定全局字體顏色為黑色 */
+body, .profile-link, .profile-other-link li a {
+  color: #212121; /* Material Design 中常用的深黑色 */
+}
+
+/* Icon setting 基本樣式 */
+.icon-setting {
+  cursor: pointer; /* 設置鼠標為指針狀 */
+}
+
+/* Profile Other Link 下拉選單樣式 */
+.profile-other-link {
+  display: none; /* 預設隱藏 */
+  position: absolute; /* 絕對定位 */
+  top: 100%; /* 放在父元素的底部 */
+  right: 0; /* 靠右對齊 */
+  background: #ffffff; /* 純白背景 */
+  border-radius: 8px; /* 更大的圓角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 更明顯的陰影 */
+  overflow: hidden; /* 隱藏溢出 */
+  z-index: 10; /* 保證在其他元素之上 */
+  min-width: 240px; /* 更大的最小寬度 */
+  margin-top: 12px; /* 增加與觸發元素的間距 */
+  padding: 8px 0; /* 上下內間距，讓項目有空間 */
+}
+
+/* 當 hover 到 .icon-setting 或 .profile-other-link 時，顯示下拉選單 */
+.icon-setting:hover .profile-other-link,
+.icon-setting:hover .link-container,
+.profile-other-link:hover {
+  display: block; /* 顯示 ul */
+}
+
+/* 下拉選單的項目樣式 */
+.profile-other-link li {
+  list-style: none; /* 移除列表樣式 */
+  padding: 12px 16px; /* 增加內間距 */
+  border-bottom: 1px solid #eee; /* 項目之間的分隔線 */
+  cursor: pointer; /* 鼠標為指針狀 */
+  transition: background 0.3s, color 0.3s; /* 增加過渡效果 */
+}
+
+/* 最後一個項目移除底部邊框 */
+.profile-other-link li:last-child {
+  border-bottom: none;
+}
+
+/* 項目連結的樣式 */
+.profile-other-link li a {
+  display: block; /* 設置為區塊，讓整個 li 可點擊 */
+  color: #212121; /* 文字顏色設為黑色 */
+  text-decoration: none; /* 移除連結的下劃線 */
+}
+
+/* 項目 hover 效果 */
+.profile-other-link li:hover {
+  background-color: #f5f5f5; /* Hover 背景色 */
+}
+
+/* 項目連結 hover 效果 */
+.profile-other-link li a:hover {
+  color: #6200ea; /* Material Design 的紫色，僅在 hover 時變色 */
+}
+
+/* 當 hover 到 .icon-setting 時更改 a 的顏色 */
+.icon-setting:hover a {
+  color: #6200ea; /* 設置為 Material Design 的主題色 */
+}
+
+.login_out {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 登出按鈕樣式 */
+.login_out a {
+  text-decoration: none; /* 移除連結的下劃線 */
+  color: #212121; /* 黑色字體 */
+  padding: 8px 16px; /* 內間距 */
+  border-radius: 4px; /* 圓角 */
+  transition: background 0.3s, color 0.3s; /* 增加過渡效果 */
+}
+
+/* 登出按鈕 hover 效果 */
+.login_out a:hover {
+  background-color: #e0e0e0; /* 灰色 hover 背景 */
+  color: #6200ea; /* hover 時字體顏色變為 Material Design 主題色 */
+}
+
+/* Menu Group 樣式 */
+.menu-group {
+  margin-bottom: 16px; /* 各組之間的間距 */
+  border-radius: 8px; /* 圓角 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 陰影 */
+  background-color: #fff; /* 白色背景 */
+  overflow: hidden; /* 隱藏溢出 */
+}
+
+/* Menu Group 標題樣式 */
+.menu-group-title {
+  padding: 16px 24px; /* 增加內間距，符合 Material Design */
+  background-color: #f5f5f5; /* 灰色背景 */
+  font-weight: bold; /* 粗體字 */
+  font-size: 18px; /* 增加字體大小 */
+  color: #6200ea; /* Material Design 紫色 */
+  cursor: pointer; /* 設置鼠標為指針狀 */
+  transition: background-color 0.3s, box-shadow 0.3s; /* 背景色與陰影過渡效果 */
+  position: relative; /* 設置相對定位 */
+  border-radius: 4px; /* 圓角效果 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 微妙陰影 */
+}
+
+/* Menu Group 標題 Hover 效果 */
+.menu-group-title:hover {
+  background-color: #e0e0e0; /* hover 時變淺灰色 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 更深的陰影效果 */
+}
+
+/* Menu Items 列表樣式 */
+.menu-items {
+  list-style: none; /* 移除預設列表樣式 */
+  padding: 8px 0; /* 增加上下內間距 */
+  margin: 4px 0 0 0; /* 與標題保持一點距離 */
+  display: none; /* 默認隱藏 */
+  position: absolute; /* 相對定位，讓內部項目相對於父元素定位 */
+  background: #fff; /* 白色背景 */
+  border-radius: 4px; /* 圓角效果 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  z-index: 100; /* 確保在其他元素之上 */
+  transition: all 0.3s ease-in-out; /* 添加過渡效果 */
+}
+
+/* Menu Items 內每個選項的樣式 */
+.menu-items li {
+  padding: 12px 16px; /* 內間距 */
+  border-bottom: 1px solid #eee; /* 底部分隔線 */
+  transition: background-color 0.3s; /* 背景色過渡效果 */
+}
+
+/* 最後一個選項去掉分隔線 */
+.menu-items li:last-child {
+  border-bottom: none;
+}
+
+/* Menu Items 內超連結樣式 */
+.menu-items li a {
+  display: block; /* 設置為區塊，讓整個 li 可點擊 */
+  color: #212121; /* 黑色文字 */
+  transition: color 0.3s; /* 顏色過渡效果 */
+}
+
+/* Menu Items 的 hover 效果 */
+.menu-items li:hover {
+  background-color: #f0f0f0; /* hover 時的背景色 */
+}
+
+/* Menu Items 內超連結的 hover 效果 */
+.menu-items li a:hover {
+  color: #6200ea; /* hover 時變為 Material Design 主題色 */
+}
+
+.menu-group.active .menu-items {
+  display: block; /* 顯示 ul */
+}
+
+/* Menu Items 內每個選項的樣式 */
+.menu-items li {
+  padding: 12px 24px; /* 增加內間距 */
+  border-bottom: 1px solid #eee; /* 底部分隔線 */
+  transition: background-color 0.3s; /* 背景色過渡效果 */
+  cursor: pointer; /* 設置鼠標為指針狀 */
+}
+
+/* 最後一個選項去掉分隔線 */
+.menu-items li:last-child {
+  border-bottom: none;
+}
+
+/* Menu Items 內超連結樣式 */
+.menu-items li a {
+  display: block; /* 設置為區塊，讓整個 li 可點擊 */
+  color: #212121; /* Material Design 深黑色文字 */
+  font-size: 16px; /* 字體大小 */
+  text-decoration: none; /* 移除連結的下劃線 */
+  transition: color 0.3s; /* 顏色過渡效果 */
+}
+
+/* Menu Items 的 hover 效果 */
+.menu-items li:hover {
+  background-color: #f0f0f0; /* hover 時變為淺灰色 */
+}
+
+/* Menu Items 內超連結的 hover 效果 */
+.menu-items li a:hover {
+  color: #6200ea; /* hover 時變為 Material Design 紫色 */
+}/*# sourceMappingURL=all.css.map */
