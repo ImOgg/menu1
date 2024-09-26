@@ -60,15 +60,10 @@ textarea {
   resize: none;
 }
 
-.desktop-menu li:hover,
-.desktop-menu li:focus,
-.desktop-menu li:active {
-  border-radius: 6px;
-}
-
 .header {
   width: 100%;
-  background: #ab9ad0; /* 統一背景色 */
+  background: #ab9ad0;
+  /* 統一背景色 */
   position: fixed;
   top: 0;
   z-index: 100;
@@ -76,10 +71,12 @@ textarea {
 }
 
 .nav_container {
-  max-width: 1366px; /* 固定最大寬度 */
+  max-width: 1366px;
+  /* 固定最大寬度 */
   margin: auto;
   padding: 0px 32px;
-  position: relative; /* 為子元素設置定位參考 */
+  position: relative;
+  /* 為子元素設置定位參考 */
 }
 
 .navbar {
@@ -88,16 +85,6 @@ textarea {
   align-items: center;
   max-width: 1366px;
   margin: auto;
-}
-.navbar .logo_link {
-  display: flex;
-  align-items: center;
-}
-
-.desktop_login_out {
-  display: flex;
-  align-items: start;
-  gap: 20px;
 }
 
 .icon-setting {
@@ -124,31 +111,329 @@ textarea {
   border-radius: 6px;
 }
 
-.logo-text {
-  margin-left: 10px;
+/* 設定全局字體顏色為黑色 */
+body,
+.profile-link,
+.profile-other-link li a {
+  color: #212121;
+  /* Material Design 中常用的深黑色 */
 }
 
-.btn_showoff {
-  position: relative;
+/* Icon setting 基本樣式 */
+.icon-setting {
+  cursor: pointer;
+  /* 設置鼠標為指針狀 */
 }
 
-.showoff {
+/* Profile Other Link 下拉選單樣式 */
+.profile-other-link {
+  display: none;
+  /* 預設隱藏 */
   position: absolute;
-  background-color: #fff;
-  display: none;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  width: 100%;
+  /* 絕對定位 */
+  top: 100%;
+  /* 放在父元素的底部 */
+  right: 0;
+  /* 靠右對齊 */
+  background: #ffffff;
+  /* 純白背景 */
+  border-radius: 8px;
+  /* 更大的圓角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* 更明顯的陰影 */
+  overflow: hidden;
+  /* 隱藏溢出 */
+  z-index: 10;
+  /* 保證在其他元素之上 */
+  min-width: 240px;
+  /* 更大的最小寬度 */
+  margin-top: 12px;
+  /* 增加與觸發元素的間距 */
+  padding: 8px 0;
+  /* 上下內間距，讓項目有空間 */
 }
 
-.btn_showoff:hover .showoff {
+/* 當 hover 到 .icon-setting 或 .profile-other-link 時，顯示下拉選單 */
+.icon-setting:hover .profile-other-link,
+.icon-setting:hover .link-container,
+.profile-other-link:hover {
   display: block;
+  /* 顯示 ul */
 }
 
-.mobile-menu-2-btn {
+/* 下拉選單的項目樣式 */
+.profile-other-link li {
+  list-style: none;
+  /* 移除列表樣式 */
+  padding: 12px 16px;
+  /* 增加內間距 */
+  border-bottom: 1px solid #eee;
+  /* 項目之間的分隔線 */
+  cursor: pointer;
+  /* 鼠標為指針狀 */
+  transition: background 0.3s, color 0.3s;
+  /* 增加過渡效果 */
+}
+
+/* 最後一個項目移除底部邊框 */
+.profile-other-link li:last-child {
+  border-bottom: none;
+}
+
+/* 項目連結的樣式 */
+.profile-other-link li a {
+  display: block;
+  /* 設置為區塊，讓整個 li 可點擊 */
+  color: #212121;
+  /* 文字顏色設為黑色 */
+  text-decoration: none;
+  /* 移除連結的下劃線 */
+}
+
+/* 項目 hover 效果 */
+.profile-other-link li:hover {
+  background-color: #f5f5f5;
+  /* Hover 背景色 */
+}
+
+/* 項目連結 hover 效果 */
+.profile-other-link li a:hover {
+  color: #6200ea;
+  /* Material Design 的紫色，僅在 hover 時變色 */
+}
+
+/* 當 hover 到 .icon-setting 時更改 a 的顏色 */
+.icon-setting:hover a {
+  color: #6200ea;
+  /* 設置為 Material Design 的主題色 */
+}
+
+.login_out {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 登出按鈕樣式 */
+.login_out a {
+  text-decoration: none;
+  /* 移除連結的下劃線 */
+  color: #212121;
+  /* 黑色字體 */
+  padding: 8px 16px;
+  /* 內間距 */
+  border-radius: 4px;
+  /* 圓角 */
+  transition: background 0.3s, color 0.3s;
+  /* 增加過渡效果 */
+}
+
+/* 登出按鈕 hover 效果 */
+.login_out a:hover {
+  background-color: #e0e0e0;
+  /* 灰色 hover 背景 */
+  color: #6200ea;
+  /* hover 時字體顏色變為 Material Design 主題色 */
+}
+
+/* Menu Group 樣式 */
+.menu-group {
+  margin-bottom: 16px;
+  /* 各組之間的間距 */
+  border-radius: 8px;
+  /* 圓角 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* 陰影 */
+  background-color: #fff;
+  /* 白色背景 */
+  overflow: hidden;
+  /* 隱藏溢出 */
+}
+
+/* Menu Group 標題樣式 */
+.menu-group-title {
+  padding: 16px 24px;
+  /* 增加內間距，符合 Material Design */
+  background-color: #f5f5f5;
+  /* 灰色背景 */
+  font-weight: bold;
+  /* 粗體字 */
+  font-size: 18px;
+  /* 增加字體大小 */
+  color: #6200ea;
+  /* Material Design 紫色 */
+  cursor: pointer;
+  /* 設置鼠標為指針狀 */
+  transition: background-color 0.3s, box-shadow 0.3s;
+  /* 背景色與陰影過渡效果 */
+  position: relative;
+  /* 設置相對定位 */
+  border-radius: 4px;
+  /* 圓角效果 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* 微妙陰影 */
+}
+
+/* Menu Group 標題 Hover 效果 */
+.menu-group-title:hover {
+  background-color: #e0e0e0;
+  /* hover 時變淺灰色 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* 更深的陰影效果 */
+}
+
+/* Menu Items 列表樣式 */
+.menu-items {
+  list-style: none;
+  /* 移除預設列表樣式 */
+  padding: 8px 0;
+  /* 增加上下內間距 */
+  margin: 4px 0 0 0;
+  /* 與標題保持一點距離 */
+  display: none;
+  /* 默認隱藏 */
+  position: absolute;
+  /* 相對定位，讓內部項目相對於父元素定位 */
+  background: #fff;
+  /* 白色背景 */
+  border-radius: 4px;
+  /* 圓角效果 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* 陰影效果 */
+  z-index: 100;
+  /* 確保在其他元素之上 */
+  transition: all 0.3s ease-in-out;
+  /* 添加過渡效果 */
+}
+
+/* Menu Items 內每個選項的樣式 */
+.menu-items li {
+  padding: 12px 16px;
+  /* 內間距 */
+  border-bottom: 1px solid #eee;
+  /* 底部分隔線 */
+  transition: background-color 0.3s;
+  /* 背景色過渡效果 */
+}
+
+/* 最後一個選項去掉分隔線 */
+.menu-items li:last-child {
+  border-bottom: none;
+}
+
+/* Menu Items 內超連結樣式 */
+.menu-items li a {
+  display: block;
+  /* 設置為區塊，讓整個 li 可點擊 */
+  color: #212121;
+  /* 黑色文字 */
+  transition: color 0.3s;
+  /* 顏色過渡效果 */
+}
+
+/* Menu Items 的 hover 效果 */
+.menu-items li:hover {
+  background-color: #f0f0f0;
+  /* hover 時的背景色 */
+}
+
+/* Menu Items 內超連結的 hover 效果 */
+.menu-items li a:hover {
+  color: #6200ea;
+  /* hover 時變為 Material Design 主題色 */
+}
+
+.menu-group.active .menu-items {
+  display: block;
+  overflow: scroll;
+  /* 顯示 ul */
+}
+
+/* Menu Items 內每個選項的樣式 */
+.menu-items li {
+  padding: 12px 24px;
+  /* 增加內間距 */
+  border-bottom: 1px solid #eee;
+  /* 底部分隔線 */
+  transition: background-color 0.3s;
+  /* 背景色過渡效果 */
+  cursor: pointer;
+  /* 設置鼠標為指針狀 */
+}
+
+/* 最後一個選項去掉分隔線 */
+.menu-items li:last-child {
+  border-bottom: none;
+}
+
+/* Menu Items 內超連結樣式 */
+.menu-items li a {
+  display: block;
+  /* 設置為區塊，讓整個 li 可點擊 */
+  color: #212121;
+  /* Material Design 深黑色文字 */
+  font-size: 16px;
+  /* 字體大小 */
+  text-decoration: none;
+  /* 移除連結的下劃線 */
+  transition: color 0.3s;
+  /* 顏色過渡效果 */
+}
+
+/* Menu Items 的 hover 效果 */
+.menu-items li:hover {
+  background-color: #f0f0f0;
+  /* hover 時變為淺灰色 */
+}
+
+/* Menu Items 內超連結的 hover 效果 */
+.menu-items li a:hover {
+  color: #6200ea;
+  /* hover 時變為 Material Design 紫色 */
+}
+
+.color-picker-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.show-menu-button {
+  display: none;
+  padding: 10px 20px;
+  background-color: transparent;
+  /* 全透明背景色 */
+  color: #6200ea;
+  /* 按鈕文字設置為主題紫色 */
+  cursor: pointer;
+  border: 2px solid #6200ea;
+  /* 添加邊框，以便在透明背景時仍能看到按鈕 */
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+  /* 增加背景和文字顏色過渡效果 */
+}
+
+#show-menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  /* 半透明的紫色背景 */
+  color: #3700b3;
+  /* 文字顏色變為深紫色 */
+  border-color: #3700b3;
+  /* 邊框顏色變深 */
+}
+
+.color-picker-container {
+  margin-top: 220px;
+  /* 默認 margin-top */
+}
+
+.close-container {
   display: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .nav_container {
     padding: 0 10px 8px 8px;
   }
@@ -165,233 +450,156 @@ textarea {
     align-items: center;
     justify-content: space-between;
   }
-  .mobile-menu-2-btn {
-    display: block;
+  .color-picker-container {
+    margin-top: 180px;
+    /* 平板或小螢幕設備的 margin-top */
   }
-  ul.desktop-menu {
+  /* 預設隱藏 .desktop-menu */
+  .desktop-menu {
+    display: none;
+    /* 初始狀態隱藏 */
     position: fixed;
-    width: 80vw;
-    transition: all 0.5s;
+    /* 設置為固定定位，確保它覆蓋整個螢幕 */
+    inset: 0;
+    /* 與螢幕底部對齊 */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* 背景設置為半透明黑色 */
+    z-index: 1000;
+    /* 保證其在最上層 */
+    padding: 20px;
+    /* 設置內間距 */
+    /* 使用 flexbox 屬性 */
     flex-direction: column;
-    right: -100%;
+    /* 讓項目垂直排列 */
+    justify-content: start;
+    /* 垂直居中 */
+    align-items: center;
+    /* 水平居中 */
+    color: #ffffff;
+    /* 設置字體顏色為白色 */
+    transition: opacity 5s ease, right 5s ease;
+    /* 設置透明度過渡效果 */
+    opacity: 0;
+    /* 初始透明度設置為 0 */
   }
-  ul.desktop-menu li {
+  .menu-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .menu-group {
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     width: 100%;
   }
-  ul.desktop-menu.show {
-    right: 0;
+  .close-container {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    width: 100%;
   }
-  .showoff {
+  .hidden-menu-button {
+    padding: 10px 20px;
+    background-color: #fff;
+    /* 全透明背景色 */
+    color: #6200ea;
+    /* 按鈕文字設置為主題紫色 */
+    cursor: pointer;
+    border: 2px solid #6200ea;
+    /* 添加邊框，以便在透明背景時仍能看到按鈕 */
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    /* 增加背景和文字顏色過渡效果 */
+  }
+  .menu-group-title {
+    padding: 16px 20px;
+    background-color: #ab9ad0;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  .menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     position: static;
   }
-  .desktop-menu li a {
-    padding: 6px 20px;
+  .menu-items li {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s, color 0.3s;
   }
-  .btn_showoff {
-    margin-bottom: 10px;
+  .menu-items li:last-child {
+    border-bottom: none;
   }
-}
-/* 設定全局字體顏色為黑色 */
-body, .profile-link, .profile-other-link li a {
-  color: #212121; /* Material Design 中常用的深黑色 */
-}
-
-/* Icon setting 基本樣式 */
-.icon-setting {
-  cursor: pointer; /* 設置鼠標為指針狀 */
-}
-
-/* Profile Other Link 下拉選單樣式 */
-.profile-other-link {
-  display: none; /* 預設隱藏 */
-  position: absolute; /* 絕對定位 */
-  top: 100%; /* 放在父元素的底部 */
-  right: 0; /* 靠右對齊 */
-  background: #ffffff; /* 純白背景 */
-  border-radius: 8px; /* 更大的圓角 */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 更明顯的陰影 */
-  overflow: hidden; /* 隱藏溢出 */
-  z-index: 10; /* 保證在其他元素之上 */
-  min-width: 240px; /* 更大的最小寬度 */
-  margin-top: 12px; /* 增加與觸發元素的間距 */
-  padding: 8px 0; /* 上下內間距，讓項目有空間 */
-}
-
-/* 當 hover 到 .icon-setting 或 .profile-other-link 時，顯示下拉選單 */
-.icon-setting:hover .profile-other-link,
-.icon-setting:hover .link-container,
-.profile-other-link:hover {
-  display: block; /* 顯示 ul */
-}
-
-/* 下拉選單的項目樣式 */
-.profile-other-link li {
-  list-style: none; /* 移除列表樣式 */
-  padding: 12px 16px; /* 增加內間距 */
-  border-bottom: 1px solid #eee; /* 項目之間的分隔線 */
-  cursor: pointer; /* 鼠標為指針狀 */
-  transition: background 0.3s, color 0.3s; /* 增加過渡效果 */
-}
-
-/* 最後一個項目移除底部邊框 */
-.profile-other-link li:last-child {
-  border-bottom: none;
-}
-
-/* 項目連結的樣式 */
-.profile-other-link li a {
-  display: block; /* 設置為區塊，讓整個 li 可點擊 */
-  color: #212121; /* 文字顏色設為黑色 */
-  text-decoration: none; /* 移除連結的下劃線 */
-}
-
-/* 項目 hover 效果 */
-.profile-other-link li:hover {
-  background-color: #f5f5f5; /* Hover 背景色 */
-}
-
-/* 項目連結 hover 效果 */
-.profile-other-link li a:hover {
-  color: #6200ea; /* Material Design 的紫色，僅在 hover 時變色 */
-}
-
-/* 當 hover 到 .icon-setting 時更改 a 的顏色 */
-.icon-setting:hover a {
-  color: #6200ea; /* 設置為 Material Design 的主題色 */
-}
-
-.login_out {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* 登出按鈕樣式 */
-.login_out a {
-  text-decoration: none; /* 移除連結的下劃線 */
-  color: #212121; /* 黑色字體 */
-  padding: 8px 16px; /* 內間距 */
-  border-radius: 4px; /* 圓角 */
-  transition: background 0.3s, color 0.3s; /* 增加過渡效果 */
-}
-
-/* 登出按鈕 hover 效果 */
-.login_out a:hover {
-  background-color: #e0e0e0; /* 灰色 hover 背景 */
-  color: #6200ea; /* hover 時字體顏色變為 Material Design 主題色 */
-}
-
-/* Menu Group 樣式 */
-.menu-group {
-  margin-bottom: 16px; /* 各組之間的間距 */
-  border-radius: 8px; /* 圓角 */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 陰影 */
-  background-color: #fff; /* 白色背景 */
-  overflow: hidden; /* 隱藏溢出 */
-}
-
-/* Menu Group 標題樣式 */
-.menu-group-title {
-  padding: 16px 24px; /* 增加內間距，符合 Material Design */
-  background-color: #f5f5f5; /* 灰色背景 */
-  font-weight: bold; /* 粗體字 */
-  font-size: 18px; /* 增加字體大小 */
-  color: #6200ea; /* Material Design 紫色 */
-  cursor: pointer; /* 設置鼠標為指針狀 */
-  transition: background-color 0.3s, box-shadow 0.3s; /* 背景色與陰影過渡效果 */
-  position: relative; /* 設置相對定位 */
-  border-radius: 4px; /* 圓角效果 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 微妙陰影 */
-}
-
-/* Menu Group 標題 Hover 效果 */
-.menu-group-title:hover {
-  background-color: #e0e0e0; /* hover 時變淺灰色 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 更深的陰影效果 */
-}
-
-/* Menu Items 列表樣式 */
-.menu-items {
-  list-style: none; /* 移除預設列表樣式 */
-  padding: 8px 0; /* 增加上下內間距 */
-  margin: 4px 0 0 0; /* 與標題保持一點距離 */
-  display: none; /* 默認隱藏 */
-  position: absolute; /* 相對定位，讓內部項目相對於父元素定位 */
-  background: #fff; /* 白色背景 */
-  border-radius: 4px; /* 圓角效果 */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 陰影效果 */
-  z-index: 100; /* 確保在其他元素之上 */
-  transition: all 0.3s ease-in-out; /* 添加過渡效果 */
-}
-
-/* Menu Items 內每個選項的樣式 */
-.menu-items li {
-  padding: 12px 16px; /* 內間距 */
-  border-bottom: 1px solid #eee; /* 底部分隔線 */
-  transition: background-color 0.3s; /* 背景色過渡效果 */
-}
-
-/* 最後一個選項去掉分隔線 */
-.menu-items li:last-child {
-  border-bottom: none;
-}
-
-/* Menu Items 內超連結樣式 */
-.menu-items li a {
-  display: block; /* 設置為區塊，讓整個 li 可點擊 */
-  color: #212121; /* 黑色文字 */
-  transition: color 0.3s; /* 顏色過渡效果 */
-}
-
-/* Menu Items 的 hover 效果 */
-.menu-items li:hover {
-  background-color: #f0f0f0; /* hover 時的背景色 */
-}
-
-/* Menu Items 內超連結的 hover 效果 */
-.menu-items li a:hover {
-  color: #6200ea; /* hover 時變為 Material Design 主題色 */
-}
-
-.menu-group.active .menu-items {
-  display: block; /* 顯示 ul */
-}
-
-/* Menu Items 內每個選項的樣式 */
-.menu-items li {
-  padding: 12px 24px; /* 增加內間距 */
-  border-bottom: 1px solid #eee; /* 底部分隔線 */
-  transition: background-color 0.3s; /* 背景色過渡效果 */
-  cursor: pointer; /* 設置鼠標為指針狀 */
-}
-
-/* 最後一個選項去掉分隔線 */
-.menu-items li:last-child {
-  border-bottom: none;
-}
-
-/* Menu Items 內超連結樣式 */
-.menu-items li a {
-  display: block; /* 設置為區塊，讓整個 li 可點擊 */
-  color: #212121; /* Material Design 深黑色文字 */
-  font-size: 16px; /* 字體大小 */
-  text-decoration: none; /* 移除連結的下劃線 */
-  transition: color 0.3s; /* 顏色過渡效果 */
-}
-
-/* Menu Items 的 hover 效果 */
-.menu-items li:hover {
-  background-color: #f0f0f0; /* hover 時變為淺灰色 */
-}
-
-/* Menu Items 內超連結的 hover 效果 */
-.menu-items li a:hover {
-  color: #6200ea; /* hover 時變為 Material Design 紫色 */
-}
-
-.color-picker-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  .menu-items li:hover {
+    background-color: #f0f0f0;
+  }
+  .menu-items li a {
+    display: block;
+    color: #212121;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .menu-items li a:hover {
+    color: #6200ea;
+  }
+  /* 當 .desktop-menu 被添加 active 類別時顯示 */
+  .desktop-menu.active {
+    display: flex;
+    /* 顯示為 flexbox */
+    opacity: 1;
+    /* 設置透明度為 1，讓其顯示 */
+    inset: 0;
+  }
+  /* 菜單項目樣式 */
+  .menu-item {
+    margin: 10px 0;
+    /* 設置每個項目之間的間距 */
+    padding: 15px 30px;
+    /* 增加內間距 */
+    background-color: #6200ea;
+    /* 設置背景色為 Material Design 紫色 */
+    border-radius: 8px;
+    /* 設置圓角 */
+    cursor: pointer;
+    /* 設置鼠標樣式為指針 */
+    transition: background-color 0.3s, transform 0.3s;
+    /* 增加背景色與縮放效果的過渡 */
+  }
+  /* 當菜單項目被懸停時的效果 */
+  .menu-item:hover {
+    background-color: #3700b3;
+    /* 懸停時改變背景色 */
+    transform: scale(1.05);
+    /* 當懸停時放大 5% */
+  }
+  .show-menu-button {
+    display: block;
+    padding: 6px 12px;
+    background-color: transparent;
+    /* 全透明背景色 */
+    color: #6200ea;
+    /* 按鈕文字設置為主題紫色 */
+    cursor: pointer;
+    border: 2px solid #6200ea;
+    /* 添加邊框，以便在透明背景時仍能看到按鈕 */
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    /* 增加背景和文字顏色過渡效果 */
+  }
 }/*# sourceMappingURL=all.css.map */
